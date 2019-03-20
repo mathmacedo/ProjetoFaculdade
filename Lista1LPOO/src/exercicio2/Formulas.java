@@ -5,10 +5,6 @@
  */
 package exercicio2;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
-
 /**
  *
  * @author macedo
@@ -17,14 +13,14 @@ public class Formulas {
 	
     public static double calculoSalarioBruto(double valorHora, double horasTrabalhadas) throws RuntimeException {
 		if (valorHora < 0 || horasTrabalhadas < 0) {
-			throw new RuntimeException("Número negativo não permitidos");
+			throw new RuntimeException("Números negativos não permitidos");
 		}
         return horasTrabalhadas * valorHora;
     }
 
     public static double calculoSalarioLiquido(double salarioBruto, double porcentagemInss) throws RuntimeException {
 		if (salarioBruto < 0 || porcentagemInss < 0) {
-			throw new RuntimeException("Número negativo não permitidos");
+			throw new RuntimeException("Números negativos não permitidos");
 		}
 		
         double descontoInss = salarioBruto * (porcentagemInss * 1 /100);

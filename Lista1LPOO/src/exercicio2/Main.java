@@ -12,8 +12,6 @@ package exercicio2;
 public class Main {
 	public static void main(String[] args) {
         double[] valores = {};
-        double salarioBruto = 0.0;
-        double salarioLiquido = 0.0;
 		
 		Funcionario novoFuncionario = new Funcionario();
 		ReceberDadosDigitados novosDados = new ReceberDadosDigitados();
@@ -21,12 +19,11 @@ public class Main {
         valores = novosDados.receberParametros();
         novoFuncionario.setValorHora(valores[0]);
 		novoFuncionario.setHorasTrabalhadas(valores[1]);
-		novoFuncionario.setValorHora(valores[2]);
+		novoFuncionario.setPorcentagemInss(valores[2]);
+        novoFuncionario.setSalarioBruto(valores[3]);
+        novoFuncionario.setSalarioLiquido(valores[4]);
 
-        salarioBruto = Formulas.calculoSalarioBruto(novoFuncionario.getValorHora(), novoFuncionario.getHorasTrabalhadas());
-        salarioLiquido = Formulas.calculoSalarioLiquido(salarioBruto, novoFuncionario.getPorcentagemInss());
-
-        novosDados.imprimirResultado(novoFuncionario.getValorHora(), novoFuncionario.getHorasTrabalhadas(), salarioBruto, salarioLiquido);
+        novosDados.imprimirResultado(novoFuncionario.getValorHora(), novoFuncionario.getHorasTrabalhadas(), novoFuncionario.getSalarioBruto(), novoFuncionario.getSalarioLiquido());
 
     }
 }
