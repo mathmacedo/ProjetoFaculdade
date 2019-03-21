@@ -21,7 +21,7 @@
                 </div> 
             </div>
         </div>
-        
+
         <div class="container">
             <table class="table table-dark">
                 <thead>
@@ -60,7 +60,7 @@
                 </tbody>
             </table>
         </div>
-        
+
         <div class="container">
             <button type="button" class="btn btn-danger btn-lg btn-block" onclick="window.location.href = 'InformacoesSept'">Voltar</button>
         </div>

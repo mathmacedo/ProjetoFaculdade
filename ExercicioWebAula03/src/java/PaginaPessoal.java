@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author macedo
  */
-@WebServlet(urlPatterns = {"/PortalServlet"})
-public class PortalServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/PaginaPessoal"})
+public class PaginaPessoal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,19 +36,14 @@ public class PortalServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PortalServlet</title>");
+            out.println("<title>Servlet PaginaPessoal</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 style='text-align: center;'>Bem Vindo ao cadastro de usuário</h1>");
-            out.println("<div>");
-            out.println("<form action='CadastrarUsuarioServlet' method='POST'>");
-            out.println("Nome: <input name='nome'/></br>");
-            out.println("Login: <input name='login'/></br>");
-            out.println("Senha: <input name='senha'/></br>");
-            out.println("<input type='submit' value='Cadastrar'/>");
-            out.println("<a href='LogoutServlet'>Sair");
-            out.println("</form>");
-            out.println("</div>");
+            out.println("<h1 style='color: red'>Nome Completo : Matheus Macedo</h1>");
+            out.println("<h1 style='color: green'>Telefone : 41-999768566</h1>");
+            out.println("<h1 style='color: black'>Endereço : João Havro 2155, Boa Vista, Curitiba-PR</h1>");
+            out.println("<h1 style='color: yellow'>Cidade Natal : Curitiba</h1>");
+            out.println("<a href='MusicasPreferidas' style='color: blue'>Ir para Músicas Preferidas</a>");
             out.println("</body>");
             out.println("</html>");
         }

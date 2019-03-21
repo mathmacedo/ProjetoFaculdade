@@ -33,25 +33,25 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             String usuario = request.getParameter("login");
             String senha = request.getParameter("senha");
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet LoginServlet</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    if(usuario.equals("teste") && senha.equals("teste")) {
-                        out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
-                        out.println("<a href='PortalServlet'/>Continuar");
-                    } else {
-                        out.println("<h1 style='text-align: center'>Não logado</h1>");
-                        out.println("<span>Usuário ou senha incorreta.</span></br>");
-                        out.println("<a href='index.html'/>Voltar");
-                    }
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            if (usuario.equals("teste") && senha.equals("teste")) {
+                out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
+                out.println("<a href='PortalServlet'/>Continuar");
+            } else {
+                out.println("<h1 style='text-align: center'>Não logado</h1>");
+                out.println("<span>Usuário ou senha incorreta.</span></br>");
+                out.println("<a href='index.html'/>Voltar");
+            }
+            out.println("</body>");
             out.println("</html>");
         }
     }

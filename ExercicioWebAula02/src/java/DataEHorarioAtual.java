@@ -6,18 +6,20 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 
 /**
  *
  * @author macedo
  */
-@WebServlet(urlPatterns = {"/PortalServlet"})
-public class PortalServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/DataEHorarioAtual"})
+public class DataEHorarioAtual extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,19 +38,14 @@ public class PortalServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PortalServlet</title>");
+            out.println("<title>Servlet DataEHorarioAtual</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1 style='text-align: center;'>Bem Vindo ao cadastro de usuário</h1>");
-            out.println("<div>");
-            out.println("<form action='CadastrarUsuarioServlet' method='POST'>");
-            out.println("Nome: <input name='nome'/></br>");
-            out.println("Login: <input name='login'/></br>");
-            out.println("Senha: <input name='senha'/></br>");
-            out.println("<input type='submit' value='Cadastrar'/>");
-            out.println("<a href='LogoutServlet'>Sair");
-            out.println("</form>");
-            out.println("</div>");
+            Date dataHoraAtual = new Date();
+            String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+            String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+            out.println(data);
+            out.println(hora);
             out.println("</body>");
             out.println("</html>");
         }

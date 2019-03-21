@@ -11,17 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
-            <h1>Formulário</h1> 
-        </div>
-
-        <div>
-            <form action="LoginServlet" method="POST">
-                Login: <input name="login"/>
-                Senha: <input name="senha"/>
-
-                <input type="submit" value="Logar"/>
-            </form>
-        </div>
+        <form action="Processa" method="POST">
+            Nome: <input type="text" name="nome" value=""/><br/>
+            E-mail: <input type="text" name="email" value=""/><br/>
+            Idade: <input type="number" name="idade" value=""/><br/>
+            Data de Nascimento: <input type="date" name="dataNascimento" value=""/>
+            <input type="submit" value="Ok">
+        </form>
     </body>
 </html>

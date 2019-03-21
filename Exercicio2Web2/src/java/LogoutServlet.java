@@ -35,13 +35,13 @@ public class LogoutServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet LogoutServlet</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    out.println("<h1 style='text-align: center;'>Usuário Deslogado</h1>");
-                    out.println("<a href='index.html'>Voltar");
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet LogoutServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1 style='text-align: center;'>Usuário Deslogado</h1>");
+            out.println("<a href='index.html'>Voltar");
+            out.println("</body>");
             out.println("</html>");
         }
     }

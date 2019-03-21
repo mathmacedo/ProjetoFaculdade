@@ -33,25 +33,25 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
-            
+
             Usuario novoUsuario = new Usuario(nome, login, senha);
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet CadastrarUsuarioServlet</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    out.println("<h1 style='text-align: center;'>Usuário cadastrado com Sucesso</h1>");
-                    out.println(novoUsuario.getNome() + "</br>");
-                    out.println(novoUsuario.getLogin() + "</br>");
-                    out.println(novoUsuario.getSenha() + "</br>");
-                    out.println("<a href='PortalServlet'>Voltar");
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet CadastrarUsuarioServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1 style='text-align: center;'>Usuário cadastrado com Sucesso</h1>");
+            out.println(novoUsuario.getNome() + "</br>");
+            out.println(novoUsuario.getLogin() + "</br>");
+            out.println(novoUsuario.getSenha() + "</br>");
+            out.println("<a href='PortalServlet'>Voltar");
+            out.println("</body>");
             out.println("</html>");
         }
     }
