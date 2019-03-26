@@ -36,22 +36,20 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            HttpSession session = request.getSession(false);
-            
-            ArrayList<Usuario> listaUsuarios = null;
-            
-            if (session != null) {
-                listaUsuarios = (ArrayList<Usuario>) session.getAttribute("listaUsuarios");
-            }
-            
+			
+			HttpSession session = request.getSession(false);
+			
+			ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+			
+			listaUsuario = (ArrayList)session.getAttribute("listaUsuario");
+			
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
 
             Usuario novoUsuario = new Usuario(nome, login, senha);
-            listaUsuarios.add(novoUsuario);
-            session.setAttribute("listaUsuarios", listaUsuarios);
+			listaUsuario.add(novoUsuario);
+			session.setAttribute("listaUsuario", listaUsuario);
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");

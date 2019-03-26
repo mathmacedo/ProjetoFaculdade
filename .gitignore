@@ -32,3 +32,10 @@ hs_err_pid*
 target/
 
 # End of https://www.gitignore.io/api/java,java-web
+/ExercicioWebAula03-3/build/
+/ExercicioWebAula03-4/build/
+/ExercicioWebAula02/build/
+/ExercicioWebAula03/build/
+/ExercicioWebAula03-2/build/
+/ExercicioWebAula03-3/nbproject/private/
+/ExercicioWebAula03-4/nbproject/private/

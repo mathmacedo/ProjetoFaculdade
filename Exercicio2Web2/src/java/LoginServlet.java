@@ -6,11 +6,13 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,6 +35,8 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+			
+			
 
             String usuario = request.getParameter("login");
             String senha = request.getParameter("senha");
@@ -45,6 +49,12 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             if (usuario.equals("teste") && senha.equals("teste")) {
+				HttpSession session = request.getSession();
+				
+				ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+				
+				session.setAttribute("listaUsuario", listaUsuario);
+				
                 out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
                 out.println("<a class='btn btn-primary col-md-8 offset-md-2' href='PortalServlet' role='button'>Continuar</a>");
             } else {
