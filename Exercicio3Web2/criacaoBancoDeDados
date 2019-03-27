@@ -1,0 +1,8 @@
+﻿create table tb_usuario (
+	id_usuario int not null primary key,
+	login_usuario varchar(50),
+	senha_usuario varchar(50),
+	nome_usuario varchar(100)
+)
+
+insert into tb_usuario values(1, 'teste', 'teste', 'teste')

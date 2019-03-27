@@ -12,6 +12,7 @@ package exercicio1;
 public class Triangulo {
 	private double base; 
 	private double altura; 
+	private double area;
 	
 	public Triangulo() {
 		
@@ -41,5 +42,10 @@ public class Triangulo {
 	
 	public double getAltura() {
 		return this.altura;
+	}
+	
+	public double area() {
+		this.area = (this.base * this.altura) / 2;
+		return this.area;
 	}
 }

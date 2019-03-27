@@ -12,6 +12,8 @@ package exercicio1;
 public class Retangulo {
 	private double lado1;
 	private double lado2;
+	private double area;
+	private double perimetro;
 	
 	public Retangulo() {
 		
@@ -37,5 +39,15 @@ public class Retangulo {
 	public double setLado2(double lado2) {
 		this.lado2 = lado2;
 		return this.lado2;
+	}
+	
+	public double area() {
+		this.area = this.lado1 * this.lado2;
+		return this.area;
+	}
+	
+	public double perimetro() {
+		this.perimetro = 2 * (this.lado1 +  this.lado2);
+		return this.perimetro;
 	}
 }

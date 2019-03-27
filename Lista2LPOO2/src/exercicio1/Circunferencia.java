@@ -35,7 +35,7 @@ public class Circunferencia {
 	}
 	
 	public double area() {
-		
+		this.area = 2 * 3.14 * this.raio;
 		return this.area;
 	}
 	
