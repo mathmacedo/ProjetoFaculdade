@@ -18,9 +18,7 @@ public class Usuario {
 
     }
 
-    public Usuario(String nome,
-        String login,
-        String senha) {
+    public Usuario(String nome, String login,String senha) {
         this.setNome(nome);
         this.setLogin(login);
         this.setSenha(senha);
