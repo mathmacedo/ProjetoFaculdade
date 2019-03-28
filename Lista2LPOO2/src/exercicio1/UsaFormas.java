@@ -5,6 +5,8 @@
  */
 package exercicio1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -22,6 +24,7 @@ public class UsaFormas {
 		double lado2;
 		double base;
 		double altura;
+        List novaLista = new ArrayList();
 		
 		System.out.println("Quantas formas deseja criar ?");
 		numeroFormas = sc.nextInt();
@@ -36,6 +39,7 @@ public class UsaFormas {
 						System.out.println("Digite o raio ");
 						raio = sc.nextDouble();
 						Circunferencia novaCircunferencia = new Circunferencia(raio);
+                        novaLista.add(novaCircunferencia.area());
 						break; 
 					} catch(RuntimeException e) {
 						System.out.println(e);
@@ -51,6 +55,7 @@ public class UsaFormas {
 						System.out.println("Digite o lado2: ");
 						lado2 = sc.nextDouble();
 						Retangulo novoRetangulo = new Retangulo(lado1, lado2);
+                        novaLista.add(novoRetangulo.area());
 						break;
 					} catch(RuntimeException e) {
 						System.out.println(e);
@@ -58,8 +63,32 @@ public class UsaFormas {
 				} while(true);
 			}
 			
-			if(escolha )
+			if(escolha == 3) {
+                do {
+                    try {
+                        System.out.println("Digite a base: ");
+                        base = sc.nextDouble();
+                        System.out.println("Digite a altura: ");
+                        altura = sc.nextDouble(); 
+                        Triangulo novoTriangulo = new Triangulo(base, altura);
+                        novaLista.add(novoTriangulo.area());
+                        break;
+                    } catch(RuntimeException e) {
+                        System.out.println(e);
+                    }
+                } while(true);
+            }
+            
+            if(escolha == 4)  {
+                break;
+            }
 		}
+        
+        for (Object i : novaLista) {
+            System.out.println("Valor da área igual = " + i);
+        }
+    
 	}
 	
+    
 }
