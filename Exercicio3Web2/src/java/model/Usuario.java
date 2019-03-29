@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
 /**
  *
@@ -20,7 +20,7 @@ public class Usuario {
         
     }
 
-    public Usuario(int id, String nome, String login, String senha) {
+    public Usuario(String nome, String login, String senha) {
         this.setId(id);
         this.setNome(nome);
         this.setLogin(login);
