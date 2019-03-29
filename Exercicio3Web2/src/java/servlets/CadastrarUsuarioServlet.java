@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servelets;
+package servlets;
 
-import DAO.UsuarioDAO;
-import Model.Usuario;
+import dao.UsuarioDAO;
+import model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,22 +40,22 @@ public class CadastrarUsuarioServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession(false);
+			
+			if (session == null) {
+				request.setAttribute("msg", "Login ou Senha incorreto.");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/ErroServlet");
+				rd.forward(request, response);
+				return;
+			}
 
             String nome = request.getParameter("nome");
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
-            int id = 0;
 
             UsuarioDAO novoUsuarioDAO = new UsuarioDAO();
             List<Usuario> listaUsuarios = novoUsuarioDAO.getAll();
             
-            for (Usuario i : listaUsuarios) {
-                if(i.getId() > id) {
-                    id = i.getId();
-                }
-            }
-            
-            Usuario novoUsuario = new Usuario(id +1, nome, login, senha);
+            Usuario novoUsuario = new Usuario(nome, login, senha);
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");

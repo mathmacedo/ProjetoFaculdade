@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servelets;
+package servlets;
 
-import DAO.UsuarioDAO;
-import Model.Usuario;
+import dao.UsuarioDAO;
+import model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,7 +53,7 @@ public class LoginServlet extends HttpServlet {
                 out.println("</head>");
                 out.println("<body>");
                     for(Usuario i: lista) {
-                        if(usuario.equals(i.getLogin()) && usuario.equals(i.getSenha())) {
+                        if(usuario.equals(i.getLogin()) && senha.equals(i.getSenha())) {
                             session = request.getSession(true);
                             session.setAttribute("usuarioSessao", i);
                         }
@@ -62,9 +63,10 @@ public class LoginServlet extends HttpServlet {
                         out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
                         out.println("<a class='btn btn-primary col-md-8 offset-md-2' href='PortalServlet' role='button'>Continuar</a>");
                     } else {
-                        out.println("<h1 style='text-align: center'>Não logado</h1>");
-                        out.println("<div class='alert alert-danger col-md-8 offset-md-2' role='alert'>Usuãrio ou senha incorreta !</div");
-                        out.println("<div><a class='btn btn-primary col-md-8 offset-md-2' href='index.html' role='button'>Voltar</a></div>");
+						request.setAttribute("msg", "Login ou Senha incorreto.");
+						RequestDispatcher rd = getServletContext().getRequestDispatcher("/ErroServlet");
+						rd.forward(request, response);
+						return;
                     }
                     
                     out.println("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>");

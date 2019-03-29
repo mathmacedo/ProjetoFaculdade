@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servelets;
+package servlets;
 
-import Model.Usuario;
-import DAO.UsuarioDAO;
+import model.Usuario;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +42,13 @@ public class PortalServlet extends HttpServlet {
 
             UsuarioDAO listaUsuarioDAO = new UsuarioDAO();
             List<Usuario> listaUsuario = listaUsuarioDAO.getAll();
+			
+			if (session == null) {
+				request.setAttribute("msg", "Login ou Senha incorreto.");
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/ErroServlet");
+				rd.forward(request, response);
+				return;
+			}
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -82,7 +90,7 @@ public class PortalServlet extends HttpServlet {
                         out.println("<tbody>");
                             for (Usuario i : listaUsuario) {
                                 out.println("<tr>");
-                                    out.println("<th scope='row'>" + i.getId()+ "</th>");
+                                    out.println("<th scope='row'>" + i.getId() + "</th>");
                                     out.println("<td>" + i.getNome() + "</td>");
                                     out.println("<td>" + i.getLogin() + "</td>");
                                     out.println("<td>" + i.getSenha() + "</td>");
