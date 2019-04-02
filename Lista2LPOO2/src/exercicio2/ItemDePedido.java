@@ -18,17 +18,16 @@ public class ItemDePedido {
 		
 	}
 	
-	public ItemDePedido(String nome, double preco, int quantidade) throws RuntimeException {
-		if (nome == null || preco < 0 || quantidade <= 0) {
-			throw new RuntimeException("Números negativos não permitidos e descrição não pode ser nula!");
-		} else {
-			this.nome = nome; 
-			this.preco = preco;
-			this.quantiade = quantidade;
-		}
+	public ItemDePedido(String nome, double preco, int quantidade) {
+		this.setNome(nome);
+        this.setPreco(preco);
+        this.setQuatindade(quantidade);
 	}
 	
-	public String setNome(String nome) {
+	public String setNome(String nome) throws RuntimeException {
+        if(nome == null) {
+            throw new RuntimeException("Nome do Item não pode ser vazio.");
+        }
 		this.nome = nome;
 		return this.nome;
 	}
@@ -37,8 +36,11 @@ public class ItemDePedido {
 		return this.nome;
 	}
 	
-	public double setPreco(double preco) {
-		this.preco = preco;
+	public double setPreco(double preco) throws RuntimeException {
+		if(preco < 0) {
+            throw new RuntimeException("Números negativos não permitidos.");
+        }
+        this.preco = preco;
 		return this.preco;
 	}
 	
@@ -46,8 +48,11 @@ public class ItemDePedido {
 		return this.preco;
 	}
 	
-	public int setQuatindade(int quantidade) {
-		this.quantiade = quantidade;
+	public int setQuatindade(int quantidade) throws RuntimeException {
+		if(quantidade < 0) {
+            throw new RuntimeException("Números negativos não permitidos.");
+        }
+        this.quantiade = quantidade;
 		return this.quantiade;
 	}
 	

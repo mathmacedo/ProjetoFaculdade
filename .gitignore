@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/java,java-web
-# Edit at https://www.gitignore.io/?templates=java,java-web
+# Created by https://www.gitignore.io/api/java,netbeans,java-web
+# Edit at https://www.gitignore.io/?templates=java,netbeans,java-web
 
 ### Java ###
 # Compiled class file
@@ -31,21 +31,14 @@ hs_err_pid*
 ## ignoring target file
 target/
 
-# End of https://www.gitignore.io/api/java,java-web
-/ExercicioWebAula03-3/build/
-/ExercicioWebAula03-4/build/
-/ExercicioWebAula02/build/
-/ExercicioWebAula03/build/
-/ExercicioWebAula03-2/build/
-/ExercicioWebAula03-3/nbproject/private/
-/ExercicioWebAula03-4/nbproject/private/
-/ConexaoBancodeDadosLPOO2/nbproject/private/
-/Lista2LPOO2/nbproject/private/
-/ConexaoBancodeDadosLPOO2/build/
-/Exercicio3Web2/nbproject/private/
-/Teste/nbproject/private/
-/Exercicio3Web2/build/
-/Exercicio3Web2/dist/
-/Lista2LPOO2/build/
-/Exercicio4Web2/nbproject/private/
-/Exercicio4Web2/build/
+### NetBeans ###
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# End of https://www.gitignore.io/api/java,netbeans,java-web
