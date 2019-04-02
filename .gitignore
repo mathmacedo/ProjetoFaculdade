@@ -33,6 +33,7 @@ target/
 
 ### NetBeans ###
 **/nbproject/private/
+**/nbproject/project.properties
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
 build/
