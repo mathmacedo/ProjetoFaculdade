@@ -13,84 +13,98 @@ import java.util.List;
  * @author macedo
  */
 public class Pedido {
-	private String nomeCliente;
-	private List<ItemDePedido> listaItemDePedidos = new ArrayList<>();
-	private double valorTotalPermitido;
-	private ItemDePedido novoPedido = null;
-	
-	public Pedido() {
-		
-	}
-	
-	public Pedido(String nomeCliente, double valorTotalPermitido) {
+    private String nomeCliente;
+    private List<ItemDePedido> listaDeItens = new ArrayList<>();
+    private double valorTotalPermitido;
+    private ItemDePedido novoItemDePedido = null;
+    private double valorTotalPedido;
+    
+    public Pedido(String nomeCliente, double valorTotalPermitido) {
         this.setNomeCliente(nomeCliente);
-		this.setValorTotalPermitido(valorTotalPermitido);
-	}
-	
-    public void setNomeCliente(String nomeCliente) throws RuntimeException {
-        if(nomeCliente == null) {
-            throw new RuntimeException("Nome não pode ser nulo!");
-        }
-		this.nomeCliente = nomeCliente;
+        this.setValorTotalPermitido(valorTotalPermitido);
     }
     
-	public String getNomeCliente() {
-		return this.nomeCliente;
-	}
+    public void setNomeCliente(String nomeCliente) throws RuntimeException {
+        if(nomeCliente.isEmpty()) {
+            throw new RuntimeException("Nome do cliente não pode ser vazio!");
+        } else {
+            this.nomeCliente = nomeCliente;
+        }
+    }
+    
+    public String getNomeCliente() {
+        return this.nomeCliente;
+    }
+    
+    public void setListaDeItens(ItemDePedido itemDePedido) throws RuntimeException {
+        if(this.valorTotalPedido == this.valorTotalPermitido) {
+            throw new RuntimeException("Item de Pedido não incluido!");
+        } else if(this.valorTotalPermitido == 0) {
+            throw new RuntimeException("Cliente não tem nenhum crédito!");
+        } else {
+            this.verificarSeItemJaExisteNoPedido(itemDePedido);
+            this.listaDeItens.add(itemDePedido);
+            this.setValorTotalPedido();
+        } 
+        this.listaDeItens.add(itemDePedido);
+    }
+    
+    public List<ItemDePedido> getListaDeItens() {
+        return this.listaDeItens;
+    }
     
     public void setValorTotalPermitido(double valorTotalPermitido) throws RuntimeException {
         if(valorTotalPermitido < 0) {
-            throw new RuntimeException("Valor negativo não permitido!");
+            throw new RuntimeException("Valor Total Permitido não pode ser negativo!");
+        } else {
+            this.valorTotalPermitido = valorTotalPermitido;        
         }
-        this.valorTotalPermitido = valorTotalPermitido;
     }
     
-    public double getValorTotal() {
+    public double getValorTotalPermitido() {
         return this.valorTotalPermitido;
     }
-	
-	public List<ItemDePedido> getItens() {
-		return this.listaItemDePedidos;
-	}
     
-    public void acrescentaItem(ItemDePedido itemDePedido) throws RuntimeException {
-		do {
-			
-		}
-        double valorTotalPedido = itemDePedido.getPreco() * itemDePedido.getQuantidade();
-        if (valorTotalPedido > this.valorTotalPermitido) {
-            throw new RuntimeException("Item de Pedido não incluido. Valor do pedido excedido!");
-        } else if (this.valorTotalPermitido == 0) {
-            throw new RuntimeException("Cliente não tem nenhum crédito.");
-        } else {
-            this.listaItemDePedidos.add(itemDePedido);
+    public void novoItemDePedido(String nome, double preco, int quantidade) {
+        this.novoItemDePedido = new ItemDePedido(nome, preco, quantidade);
+        this.setListaDeItens(novoItemDePedido);
+        this.setValorTotalPedido();
+    }
+    
+    public void setValorTotalPedido() {
+        for(ItemDePedido i : this.getListaDeItens()) {
+           this.valorTotalPedido = this.valorTotalPedido + (i.getPreco() * i.getQuantidade());
         }
     }
     
-    public void retirarItemPedido(String nome) throws RuntimeException {
-        for(ItemDePedido i : this.listaItemDePedidos) {
-            if (i.getNome() == nome) {
-                listaItemDePedidos.remove(i);
-            } else {
-                throw new RuntimeException("Item não encontrado no pedido!");
+    public double getValorTotalPedido() {
+        return this.valorTotalPedido; 
+    }
+    
+    public void verificarSeItemJaExisteNoPedido(ItemDePedido itemDePedido) {
+        for(ItemDePedido i : this.getListaDeItens()) {
+            if(i.getNome().equals(itemDePedido.getNome())) {
+                i.setQuantidade(i.getQuantidade() + itemDePedido.getQuantidade());
+            }
+        }
+        this.setValorTotalPedido();
+    }
+    
+    public void retirarItem(String nomeItem) {
+        for (ItemDePedido i : this.getListaDeItens()) {
+            if (i.getNome().equals(nomeItem)) {
+                this.listaDeItens.remove(i);
+                this.setValorTotalPedido();
             }
         }
     }
     
-    public double getTotal() {
-        double total = 0;
-        for (ItemDePedido i : this.listaItemDePedidos) {
-            total = total + i.getPreco();
-        }
-        return total;
-    }
-    
     public String toString() {
-        String retorno = "Nome do cliente " + this.getNomeCliente() + "\n" + "Total do Pedido " + getTotal() + "\n"; 
-        for (ItemDePedido i : this.listaItemDePedidos) {
-            retorno += "Item : " + i.getNome() + "\n";
-            retorno += "Preço : " + i.getPreco() + "\n \n \n";
+        String texto;
+        texto = "Nome do Cliente : " + this.getNomeCliente() + "\n";
+        for(ItemDePedido i : this.getListaDeItens()) {
+            texto += "Nome : " + i.getNome() + " Preço : " + i.getPreco() + "\n";
         }
-        return retorno;
+        return texto;
     }
 }

@@ -10,50 +10,49 @@ package exercicio2;
  * @author macedo
  */
 public class ItemDePedido {
-	private String nome; 
-	private double preco;
-	private int quantiade; 
-	
-	public ItemDePedido() {
-		
-	}
-	
-	public ItemDePedido(String nome, double preco, int quantidade) {
-		this.setNome(nome);
+    private String nome;
+    private double preco;
+    private int quantidade;
+    
+    public ItemDePedido(String nome, double preco, int quantidade) {
+        this.setNome(nome);
         this.setPreco(preco);
-        this.setQuatindade(quantidade);
-	}
-	
-	public void setNome(String nome) throws RuntimeException {
-        if(nome == null) {
-            throw new RuntimeException("Nome do Item não pode ser vazio.");
+        this.setQuantidade(quantidade);
+    }
+    
+    public void setNome(String nome) throws RuntimeException {
+        if(nome.isEmpty()) {
+            throw new RuntimeException("Nome do item não pode ser vazio!");
+        } else {
+            this.nome = nome;
         }
-		this.nome = nome;
-	}
-	
-	public String getNome() {
-		return this.nome;
-	}
-	
-	public void setPreco(double preco) throws RuntimeException {
-		if(preco < 0) {
-            throw new RuntimeException("Números negativos não permitidos.");
+    }
+    
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public void setPreco(double preco) throws RuntimeException {
+        if(preco < 0) {
+            throw new RuntimeException("Preço do item não pode ser negativo!");
+        } else {
+            this.preco = preco;
         }
-        this.preco = preco;
-	}
-	
-	public double getPreco() {
-		return this.preco;
-	}
-	
-	public void setQuatindade(int quantidade) throws RuntimeException {
-		if(quantidade < 0) {
-            throw new RuntimeException("Números negativos não permitidos.");
+    }
+    
+    public double getPreco() {
+        return this.preco;
+    }
+    
+    public void setQuantidade(int quantidade) throws RuntimeException {
+        if(quantidade <= 0) {
+            throw new RuntimeException("Quantidade não pode ser negativo!");
+        } else {
+            this.quantidade = quantidade;
         }
-        this.quantiade = quantidade;
-	}
-	
-	public int getQuantidade() {
-		return this.quantiade;
-	}
+    }
+    
+    public int getQuantidade() {
+        return this.quantidade;
+    }
 }
