@@ -24,36 +24,33 @@ public class ItemDePedido {
         this.setQuatindade(quantidade);
 	}
 	
-	public String setNome(String nome) throws RuntimeException {
+	public void setNome(String nome) throws RuntimeException {
         if(nome == null) {
             throw new RuntimeException("Nome do Item não pode ser vazio.");
         }
 		this.nome = nome;
-		return this.nome;
 	}
 	
 	public String getNome() {
 		return this.nome;
 	}
 	
-	public double setPreco(double preco) throws RuntimeException {
+	public void setPreco(double preco) throws RuntimeException {
 		if(preco < 0) {
             throw new RuntimeException("Números negativos não permitidos.");
         }
         this.preco = preco;
-		return this.preco;
 	}
 	
 	public double getPreco() {
 		return this.preco;
 	}
 	
-	public int setQuatindade(int quantidade) throws RuntimeException {
+	public void setQuatindade(int quantidade) throws RuntimeException {
 		if(quantidade < 0) {
             throw new RuntimeException("Números negativos não permitidos.");
         }
         this.quantiade = quantidade;
-		return this.quantiade;
 	}
 	
 	public int getQuantidade() {

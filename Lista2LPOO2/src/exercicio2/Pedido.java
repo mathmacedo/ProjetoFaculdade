@@ -5,6 +5,7 @@
  */
 package exercicio2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,39 +14,39 @@ import java.util.List;
  */
 public class Pedido {
 	private String nomeCliente;
-	private List<ItemDePedido> listaItemDePedidos;
-	private double valorTotal;
+	private List<ItemDePedido> listaItemDePedidos = new ArrayList<>();
+	private double valorTotalPermitido;
+	private ItemDePedido novoPedido = null;
 	
 	public Pedido() {
 		
 	}
 	
-	public Pedido(double valorTotal, String nomeCliente) {
-		this.setValorTotal(valorTotal);
+	public Pedido(String nomeCliente, double valorTotalPermitido) {
         this.setNomeCliente(nomeCliente);
+		this.setValorTotalPermitido(valorTotalPermitido);
 	}
 	
-    public String setNomeCliente(String nomeCliente) throws RuntimeException {
+    public void setNomeCliente(String nomeCliente) throws RuntimeException {
         if(nomeCliente == null) {
             throw new RuntimeException("Nome não pode ser nulo!");
         }
-        return this.nomeCliente;
+		this.nomeCliente = nomeCliente;
     }
     
 	public String getNomeCliente() {
 		return this.nomeCliente;
 	}
     
-    public double setValorTotal(double valorTotal) throws RuntimeException {
-        if(valorTotal < 0) {
+    public void setValorTotalPermitido(double valorTotalPermitido) throws RuntimeException {
+        if(valorTotalPermitido < 0) {
             throw new RuntimeException("Valor negativo não permitido!");
         }
-        this.valorTotal = valorTotal;
-        return this.valorTotal;
+        this.valorTotalPermitido = valorTotalPermitido;
     }
     
     public double getValorTotal() {
-        return this.valorTotal;
+        return this.valorTotalPermitido;
     }
 	
 	public List<ItemDePedido> getItens() {
@@ -53,17 +54,20 @@ public class Pedido {
 	}
     
     public void acrescentaItem(ItemDePedido itemDePedido) throws RuntimeException {
+		do {
+			
+		}
         double valorTotalPedido = itemDePedido.getPreco() * itemDePedido.getQuantidade();
-        if (valorTotalPedido > this.valorTotal) {
+        if (valorTotalPedido > this.valorTotalPermitido) {
             throw new RuntimeException("Item de Pedido não incluido. Valor do pedido excedido!");
-        } else if (this.valorTotal == 0) {
+        } else if (this.valorTotalPermitido == 0) {
             throw new RuntimeException("Cliente não tem nenhum crédito.");
         } else {
             this.listaItemDePedidos.add(itemDePedido);
         }
     }
     
-    public void retirarItem(String nome) throws RuntimeException {
+    public void retirarItemPedido(String nome) throws RuntimeException {
         for(ItemDePedido i : this.listaItemDePedidos) {
             if (i.getNome() == nome) {
                 listaItemDePedidos.remove(i);
