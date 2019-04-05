@@ -27,9 +27,12 @@ public class Usuario {
         this.setSenha(senha);
     }
 
-    public int setId(int id) {
-        this.id = id;
-        return id;
+    public void setId(int id) throws RuntimeException {
+        if (id <= 0) {
+            throw new RuntimeException("ID não pode ser menor ou igual a 0!");
+        } else {
+            this.id = id;
+        }
     }
 
     public int getId() {
