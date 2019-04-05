@@ -10,20 +10,20 @@ package exercicio2;
  * @author macedo
  */
 public class Formulas {
-	
+
     public static double calculoSalarioBruto(double valorHora, double horasTrabalhadas) throws RuntimeException {
-		if (valorHora < 0 || horasTrabalhadas < 0) {
-			throw new RuntimeException("Números negativos não permitidos");
-		}
+        if (valorHora < 0 || horasTrabalhadas < 0) {
+            throw new RuntimeException("Números negativos não permitidos");
+        }
         return horasTrabalhadas * valorHora;
     }
 
     public static double calculoSalarioLiquido(double salarioBruto, double porcentagemInss) throws RuntimeException {
-		if (salarioBruto < 0 || porcentagemInss < 0) {
-			throw new RuntimeException("Números negativos não permitidos");
-		}
-		
-        double descontoInss = salarioBruto * (porcentagemInss * 1 /100);
+        if (salarioBruto < 0 || porcentagemInss < 0) {
+            throw new RuntimeException("Números negativos não permitidos");
+        }
+
+        double descontoInss = salarioBruto * (porcentagemInss * 1 / 100);
         double descontoIr = 0.0;
         double salarioLiquido = 0.0;
         if (salarioBruto - descontoInss <= 1903.98) {

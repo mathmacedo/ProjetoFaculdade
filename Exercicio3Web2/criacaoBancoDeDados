@@ -1,8 +1,0 @@
-﻿create table tb_usuario (
-	id_usuario serial primary key,
-	login_usuario varchar(50),
-	senha_usuario varchar(50),
-	nome_usuario varchar(100)
-)
-
-insert into tb_usuario (login_usuario, senha_usuario, nome_usuario) values('teste', 'teste', 'teste')

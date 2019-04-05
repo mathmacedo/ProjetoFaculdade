@@ -10,33 +10,33 @@ package exercicio1;
  * @author macedo
  */
 public class Circunferencia {
-	
-	private double raio;
-	private double area;
-	
-	public Circunferencia() {
-		
-	}
-	
-	public Circunferencia(double raio) throws RuntimeException {
-		if (raio < 0 ) {
-			throw new RuntimeException("Números negativos não permitidos");
-		}
-		this.raio = raio;
-	}
-	
-	public double setRaio(double raio) {
-		this.raio = raio; 
-		return raio;
-	}
-	
-	public double getaio() {
-		return this.raio;
-	}
-	
-	public double area() {
-		this.area = 2 * 3.14 * this.raio;
-		return this.area;
-	}
-	
+
+    private double raio;
+    private double area;
+
+    public Circunferencia() {
+
+    }
+
+    public Circunferencia(double raio) throws RuntimeException {
+        if (raio < 0) {
+            throw new RuntimeException("Números negativos não permitidos");
+        }
+        this.raio = raio;
+    }
+
+    public double setRaio(double raio) {
+        this.raio = raio;
+        return raio;
+    }
+
+    public double getaio() {
+        return this.raio;
+    }
+
+    public double area() {
+        this.area = 2 * 3.14 * this.raio;
+        return this.area;
+    }
+
 }

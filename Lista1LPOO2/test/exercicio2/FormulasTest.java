@@ -13,12 +13,13 @@ import static org.junit.Assert.*;
  * @author macedo
  */
 public class FormulasTest {
+
     @Test
     public void testCalculoSalarioBrutoPositivo() {
         double result = Formulas.calculoSalarioBruto(10, 160);
         assertEquals(1600, result, 0.0);
     }
-    
+
     @Test
     public void testCalculoSalarioBrutoNegativo() {
         try {
@@ -34,7 +35,7 @@ public class FormulasTest {
         double result = Formulas.calculoSalarioLiquido(1600, 9);
         assertEquals(1456, result, 0.0);
     }
-    
+
     @Test
     public void testCalculoSalarioLiquidoNegativo() {
         try {

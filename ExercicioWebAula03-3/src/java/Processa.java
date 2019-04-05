@@ -34,22 +34,22 @@ public class Processa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             String usu = request.getParameter("nome");
             String sen = request.getParameter("senha");
             Cookie c = new Cookie("usuario", usu);
             c.setMaxAge(60 * 60); // 1 hora
             response.addCookie(c);
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet Processa</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    out.println("<h1>Cookie armazenado</h1></br>");
-                    out.println("<a href='Leitura'>Ver</a>");
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet Processa</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Cookie armazenado</h1></br>");
+            out.println("<a href='Leitura'>Ver</a>");
+            out.println("</body>");
             out.println("</html>");
         }
     }

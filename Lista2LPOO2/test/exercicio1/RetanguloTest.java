@@ -13,19 +13,20 @@ import static org.junit.Assert.*;
  * @author macedo
  */
 public class RetanguloTest {
-	@Test
-	public void testCircufenreciaPositivo() {
-		Retangulo novoRetangulo = new Retangulo(3,3);
-		assertEquals(9, novoRetangulo.area(), 0.0);
-	}
-	
-	@Test
-	public void testCircunferenciaNegativo() {
-		try {
-			Retangulo novoRetangulo = new Retangulo(-3,-3);
-			fail("Teste deu Errado");
-		} catch(RuntimeException e) {
-			assertEquals("Números negativos não permitidos", e.getMessage());
-		}
-	}
+
+    @Test
+    public void testCircufenreciaPositivo() {
+        Retangulo novoRetangulo = new Retangulo(3, 3);
+        assertEquals(9, novoRetangulo.area(), 0.0);
+    }
+
+    @Test
+    public void testCircunferenciaNegativo() {
+        try {
+            Retangulo novoRetangulo = new Retangulo(-3, -3);
+            fail("Teste deu Errado");
+        } catch (RuntimeException e) {
+            assertEquals("Números negativos não permitidos", e.getMessage());
+        }
+    }
 }

@@ -17,31 +17,32 @@ import java.util.List;
  * @author macedo
  */
 public class UsuarioDAO {
+
     List<Usuario> lista = new ArrayList<Usuario>();
     Connection connection = ConnectionFactory.getConnection();
     PreparedStatement st = null;
     ResultSet rs = null;
-    
+
     public List<Usuario> getAll() {
         try {
             st = connection.prepareStatement("SELECT id_usuario, login_usuario, senha_usuario, nome_usuario FROM tb_usuario");
             rs = st.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 Usuario novoUsuario = new Usuario();
                 novoUsuario.setId(rs.getInt("id_usuario"));
                 novoUsuario.setLogin(rs.getString("login_usuario"));
                 novoUsuario.setSenha(rs.getString("senha_usuario"));
                 novoUsuario.setNome(rs.getString("nome_usuario"));
-                
+
                 lista.add(novoUsuario);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Erro" + e);
         }
-        
+
         return lista;
     }
-    
+
     public Usuario inserirUsuario(Usuario usuario) {
         try {
             st = connection.prepareStatement("insert into tb_usuario (login_usuario, senha_usuario, nome_usuario) values(?, ?, ?)");
@@ -52,7 +53,7 @@ public class UsuarioDAO {
         } catch (Exception e) {
             System.out.println("Erro" + e);
         }
-        
+
         return usuario;
     }
 }

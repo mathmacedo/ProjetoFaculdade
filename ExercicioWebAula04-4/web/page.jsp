@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Teste de Escopo da Aplicação</h1>
-		<jsp:useBean id="configuracao" class="beans.ConfigBean" scope="application" />
-		E-mail: <jsp:getProperty name="configuracao" property="email" />
+        <jsp:useBean id="configuracao" class="beans.ConfigBean" scope="application" />
+        E-mail: <jsp:getProperty name="configuracao" property="email" />
     </body>
 </html>

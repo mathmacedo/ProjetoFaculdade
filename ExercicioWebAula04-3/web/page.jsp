@@ -13,8 +13,8 @@
     </head>
     <body>
         <jsp:useBean id="p" class="beans.Pessoa" scope="application"/>
-		<jsp:setProperty name="p" property="nome" value="Razer" />
-		
-		<a href="TesteServlet">Teste</a>
+        <jsp:setProperty name="p" property="nome" value="Razer" />
+
+        <a href="TesteServlet">Teste</a>
     </body>
 </html>

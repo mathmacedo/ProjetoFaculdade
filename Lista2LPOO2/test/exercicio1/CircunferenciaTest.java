@@ -13,20 +13,21 @@ import static org.junit.Assert.*;
  * @author macedo
  */
 public class CircunferenciaTest {
-	@Test
-	public void testCircufenreciaPositivo() {
-		Circunferencia novaCircunferencia = new Circunferencia(3);
-		assertEquals(3, novaCircunferencia.getaio(), 0.0);
-	}
-	
-	@Test
-	public void testCircunferenciaNegativo() {
-		try {
-			Circunferencia novaCircunferencia = new Circunferencia(-3);
-			fail("Teste deu Errado");
-		} catch(RuntimeException e) {
-			assertEquals("Números negativos não permitidos", e.getMessage());
-		}
-	}
-	
+
+    @Test
+    public void testCircufenreciaPositivo() {
+        Circunferencia novaCircunferencia = new Circunferencia(3);
+        assertEquals(3, novaCircunferencia.getaio(), 0.0);
+    }
+
+    @Test
+    public void testCircunferenciaNegativo() {
+        try {
+            Circunferencia novaCircunferencia = new Circunferencia(-3);
+            fail("Teste deu Errado");
+        } catch (RuntimeException e) {
+            assertEquals("Números negativos não permitidos", e.getMessage());
+        }
+    }
+
 }

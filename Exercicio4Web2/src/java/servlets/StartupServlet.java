@@ -10,5 +10,5 @@ package servlets;
  * @author macedo
  */
 public class StartupServlet {
-	
+
 }

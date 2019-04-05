@@ -9,8 +9,9 @@ package exercicio2;
  *
  * @author macedo
  */
-public class ExcessaoNumeroNegativo extends Exception{
-	public ExcessaoNumeroNegativo() {
+public class ExcessaoNumeroNegativo extends Exception {
+
+    public ExcessaoNumeroNegativo() {
         super("Números negativos não permitidos!");
     }
 }

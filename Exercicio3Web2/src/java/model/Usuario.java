@@ -10,6 +10,7 @@ package model;
  * @author macedo
  */
 public class Usuario {
+
     private int id;
     private String nome;
     private String login;
@@ -17,7 +18,6 @@ public class Usuario {
 
     public Usuario() {
 
-        
     }
 
     public Usuario(String nome, String login, String senha) {
@@ -31,11 +31,11 @@ public class Usuario {
         this.id = id;
         return id;
     }
-    
+
     public int getId() {
         return this.id;
     }
-    
+
     public String setNome(String nome) {
         this.nome = nome;
         return this.nome;

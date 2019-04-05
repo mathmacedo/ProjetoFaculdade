@@ -34,23 +34,23 @@ public class Processa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             String usu = request.getParameter("usuario");
             String sen = request.getParameter("senha");
-            
+
             HttpSession session = request.getSession();
             session.setAttribute("nome", usu);
             session.setAttribute("senha", sen);
-            
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet Processa</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    out.println("<h1>Dados Armazenados</h1></br>");
-                    out.println("<a href='Leitura'>Ver</a>");
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet Processa</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Dados Armazenados</h1></br>");
+            out.println("<a href='Leitura'>Ver</a>");
+            out.println("</body>");
             out.println("</html>");
         }
     }

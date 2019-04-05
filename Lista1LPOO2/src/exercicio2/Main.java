@@ -10,16 +10,17 @@ package exercicio2;
  * @author macedo
  */
 public class Main {
-	public static void main(String[] args) {
+
+    public static void main(String[] args) {
         double[] valores = {};
-		
-		Funcionario novoFuncionario = new Funcionario();
-		ReceberDadosDigitados novosDados = new ReceberDadosDigitados();
+
+        Funcionario novoFuncionario = new Funcionario();
+        ReceberDadosDigitados novosDados = new ReceberDadosDigitados();
 
         valores = novosDados.receberParametros();
         novoFuncionario.setValorHora(valores[0]);
-		novoFuncionario.setHorasTrabalhadas(valores[1]);
-		novoFuncionario.setPorcentagemInss(valores[2]);
+        novoFuncionario.setHorasTrabalhadas(valores[1]);
+        novoFuncionario.setPorcentagemInss(valores[2]);
         novoFuncionario.setSalarioBruto(valores[3]);
         novoFuncionario.setSalarioLiquido(valores[4]);
 

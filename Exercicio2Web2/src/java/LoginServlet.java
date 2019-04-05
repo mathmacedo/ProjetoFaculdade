@@ -35,8 +35,6 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-			
-			
 
             String usuario = request.getParameter("login");
             String senha = request.getParameter("senha");
@@ -44,17 +42,17 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-                out.println("<title>Servlet LoginServlet</title>");
-                out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
+            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
             out.println("</head>");
             out.println("<body>");
             if (usuario.equals("teste") && senha.equals("teste")) {
-				HttpSession session = request.getSession();
-				
-				ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
-				
-				session.setAttribute("listaUsuario", listaUsuario);
-				
+                HttpSession session = request.getSession();
+
+                ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+
+                session.setAttribute("listaUsuario", listaUsuario);
+
                 out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
                 out.println("<a class='btn btn-primary col-md-8 offset-md-2' href='PortalServlet' role='button'>Continuar</a>");
             } else {
@@ -62,9 +60,9 @@ public class LoginServlet extends HttpServlet {
                 out.println("<div class='alert alert-danger col-md-8 offset-md-2' role='alert'>Usuãrio ou senha incorreta !</div");
                 out.println("<div><a class='btn btn-primary col-md-8 offset-md-2' href='index.html' role='button'>Voltar</a></div>");
             }
-                out.println("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>");
-                out.println("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>");
-                out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>");
+            out.println("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>");
+            out.println("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>");
+            out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>");
             out.println("</body>");
             out.println("</html>");
         }

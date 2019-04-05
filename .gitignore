@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/java,netbeans,java-web
-# Edit at https://www.gitignore.io/?templates=java,netbeans,java-web
+# Created by https://www.gitignore.io/api/java,linux,netbeans,java-web,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=java,linux,netbeans,java-web,visualstudiocode
 
 ### Java ###
 # Compiled class file
@@ -31,6 +31,21 @@ hs_err_pid*
 ## ignoring target file
 target/
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -41,4 +56,15 @@ dist/
 nbdist/
 .nb-gradle/
 
-# End of https://www.gitignore.io/api/java,netbeans,java-web
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/java,linux,netbeans,java-web,visualstudiocode

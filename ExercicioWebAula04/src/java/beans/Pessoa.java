@@ -12,17 +12,18 @@ import java.io.Serializable;
  * @author macedo
  */
 public class Pessoa implements Serializable {
-	private String nome;
-	
-	public Pessoa() {
-		this.nome = "Desconhecido";
-	}
-	
-	public String getNome() {
-		return this.nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
+    private String nome;
+
+    public Pessoa() {
+        this.nome = "Desconhecido";
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

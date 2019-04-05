@@ -13,8 +13,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-		<jsp:useBean id="p" class="beans.Pessoa" scope="session">
-			Bean Criado
-		</jsp:useBean>
+        <jsp:useBean id="p" class="beans.Pessoa" scope="session">
+            Bean Criado
+        </jsp:useBean>
     </body>
 </html>

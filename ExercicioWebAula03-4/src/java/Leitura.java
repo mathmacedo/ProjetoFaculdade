@@ -34,25 +34,25 @@ public class Leitura extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             HttpSession session = request.getSession();
-            String nome = (String)session.getAttribute("nome");
-            String senha = (String)session.getAttribute("senha");
-            
+            String nome = (String) session.getAttribute("nome");
+            String senha = (String) session.getAttribute("senha");
+
             out.println("<!DOCTYPE html>");
             out.println("<html>");
-                out.println("<head>");
-                    out.println("<title>Servlet Leitura</title>");            
-                out.println("</head>");
-                out.println("<body>");
-                    out.println("<h1>"+ nome +"</h1>");
-                    if (nome == "matheus") {
-                        out.println("<p>Nome: " + nome + "</p></br>");
-                        out.println("<p>Senha: " + senha + "</p></br>");
-                    } else {
-                        out.println("Usuario não logado");
-                    }
-                out.println("</body>");
+            out.println("<head>");
+            out.println("<title>Servlet Leitura</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>" + nome + "</h1>");
+            if (nome == "matheus") {
+                out.println("<p>Nome: " + nome + "</p></br>");
+                out.println("<p>Senha: " + senha + "</p></br>");
+            } else {
+                out.println("Usuario não logado");
+            }
+            out.println("</body>");
             out.println("</html>");
         }
     }

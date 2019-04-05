@@ -13,6 +13,7 @@ import java.sql.DriverManager;
  * @author macedo
  */
 public class ConnectionFactory {
+
     public static Connection getConnection() {
         try {
             Class.forName("org.postgresql.Driver");

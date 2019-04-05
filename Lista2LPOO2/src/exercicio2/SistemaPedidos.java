@@ -14,9 +14,10 @@ import java.util.Scanner;
  * @author macedo
  */
 public class SistemaPedidos {
+
     private Pedido novoPedido = null;
     private List<Pedido> listaDePedidos = new ArrayList<>();
-    
+
     public void incluirPedido() {
         String nomeCliente;
         double valorTotal;
@@ -35,7 +36,7 @@ public class SistemaPedidos {
             }
         } while (true);
     }
-    
+
     public void incluirItemDePedido() {
         String nomeCliente;
         do {
@@ -49,15 +50,15 @@ public class SistemaPedidos {
             }
         } while (true);
     }
-    
+
     public void excluirPedido() {
         String nomeCliente;
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite nome do Cliente : ");
         nomeCliente = sc.nextLine();
         boolean excluido = false;
-        for(Pedido i : this.listaDePedidos) {
-            if(i.getNomeCliente().equals(nomeCliente)) {
+        for (Pedido i : this.listaDePedidos) {
+            if (i.getNomeCliente().equals(nomeCliente)) {
                 excluido = true;
                 this.listaDePedidos.remove(i);
             }
@@ -68,16 +69,16 @@ public class SistemaPedidos {
             System.out.println("Pedido não Existe!");
         }
     }
-    
+
     public void listarPedidos() {
-        for(Pedido i : this.listaDePedidos) {
+        for (Pedido i : this.listaDePedidos) {
             System.out.println("Nome do cliente " + i.getNomeCliente());
             System.out.println("Itens : " + i.getListaDeItens());
             System.out.println("Valor total pedido : " + i.getValorTotalPedido());
             System.out.println("Valor total permitido : " + i.getValorTotalPermitido());
         }
     }
-    
+
     public void excluirItemDePedido() {
         String nomeItem;
         do {
@@ -92,9 +93,9 @@ public class SistemaPedidos {
             }
         } while (true);
     }
-    
+
     public void imprimirListaDePedidos() {
-        for(Pedido i : this.listaDePedidos) {
+        for (Pedido i : this.listaDePedidos) {
             this.toString();
         }
     }
