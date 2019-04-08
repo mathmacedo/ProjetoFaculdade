@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Contato;
 import utils.ConnectionFactory;
 
@@ -28,8 +30,24 @@ public class ContatoDAO {
     ResultSet rs = null;
     
     List<Contato> listaDeContatos = new ArrayList<Contato>();
+    Contato contatoEspecifico = new Contato();
     
-    public void altera(Contato contato) {
+    public void altera(Contato contato) throws RuntimeException {
+        try {
+            st = connection.prepareStatement("SELECT * from contato where id = " + contato.getId());
+            rs = st.executeQuery();
+            if (rs.next()) {
+                Contato novoContato = new Contato();
+                novoContato.setId(rs.getLong("id"));
+                contatoEspecifico = novoContato;
+                st.close();
+            } else {
+                throw new RuntimeException("Contato não encontrado");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ContatoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
             st = connection.prepareStatement("UPDATE contato SET id = ?, nome = ?, email = ?, endereco = ?, datanascimento = ? where id = " + contato.getId());
             st.setLong(1, contato.getId());
@@ -45,7 +63,22 @@ public class ContatoDAO {
         }
     }
     
-    public void remove(Contato contato) {
+    public void remove(Contato contato) throws RuntimeException {
+        try {
+            st = connection.prepareStatement("SELECT * from contato where id = " + contato.getId());
+            rs = st.executeQuery();
+            if (rs.next()) {
+                Contato novoContato = new Contato();
+                novoContato.setId(rs.getLong("id"));
+                contatoEspecifico = novoContato;
+                st.close();
+            } else {
+                throw new RuntimeException("Contato não encontrado");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ContatoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
             st = connection.prepareStatement("DELETE FROM contato WHERE id = ?");
             st.setLong(1, contato.getId());
@@ -66,7 +99,7 @@ public class ContatoDAO {
                 novoContato.setNome(rs.getString("nome"));
                 novoContato.setEmail(rs.getString("email"));
                 novoContato.setEndereco(rs.getString("endereco"));
-                SimpleDateFormat dataformatada = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat dataformatada = new SimpleDateFormat("yyyy/MM/dd");
                 Calendar data = dataformatada.getCalendar();
                 data.setTime(rs.getDate("datanascimento"));
                 novoContato.setDataNascimento(data);
@@ -75,6 +108,14 @@ public class ContatoDAO {
             st.close();
         } catch(SQLException e) {
             System.out.println(e);
+        }
+        
+        for (Contato i : listaDeContatos) {
+            System.out.println("ID = " + i.getId());
+            System.out.println("Nome = " + i.getNome());
+            System.out.println("Email =  " + i.getEmail());
+            System.out.println("Endereço =  " + i.getEndereco());
+            System.out.println("Data de Nascimento =  " + i.getDataNascimento());
         }
         
         return this.listaDeContatos;
