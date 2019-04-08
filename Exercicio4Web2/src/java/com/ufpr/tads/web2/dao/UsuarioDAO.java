@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package com.ufpr.tads.web2.dao;
 
-import models.Usuario;
+import com.ufpr.tads.web2.beans.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,16 +45,36 @@ public class UsuarioDAO {
 
     public Usuario inserirUsuario(Usuario usuario) {
         try {
-            st = connection.prepareStatement("insert into tb_usuario values(?, ?, ?, ?)");
-            st.setInt(1, usuario.getId());
-            st.setString(2, usuario.getLogin());
-            st.setString(3, usuario.getSenha());
-            st.setString(4, usuario.getNome());
+            st = connection.prepareStatement("insert into tb_usuario (login_usuario, senha_usuario, nome_usuario) values(?, ?, ?)");
+            st.setString(1, usuario.getLogin());
+            st.setString(2, usuario.getSenha());
+            st.setString(3, usuario.getNome());
             st.executeUpdate();
         } catch (Exception e) {
             System.out.println("Erro" + e);
         }
 
         return usuario;
+    }
+    
+    public Usuario verificarUsuario(String login, String senha) {
+        Usuario novoUsuario = new Usuario();
+        try {
+            st = connection.prepareStatement("SELECT * FROM tb_usuario where login_usuario = ? and senha_usuario = ?");
+            st.setString(1, login);
+            st.setString(2, senha);
+            rs = st.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getInt("id"));
+                novoUsuario.setId(rs.getInt("id"));
+                novoUsuario.setLogin(rs.getString("login_usuario"));
+                novoUsuario.setSenha(rs.getString("senha_usuario"));
+                novoUsuario.setNome(rs.getString("nome_usuario"));
+            }
+        } catch (Exception e) {
+            System.out.println("Erro" + e);
+        }
+        
+        return novoUsuario;
     }
 }

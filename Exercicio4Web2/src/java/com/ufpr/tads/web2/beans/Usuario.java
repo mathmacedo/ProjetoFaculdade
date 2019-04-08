@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package models;
+package com.ufpr.tads.web2.beans;
+
+import java.io.Serializable;
 
 /**
  *
  * @author macedo
  */
-public class Usuario {
+public class Usuario implements Serializable {
 
     private int id;
     private String nome;
@@ -20,16 +22,19 @@ public class Usuario {
 
     }
 
-    public Usuario(int id, String nome, String login, String senha) {
+    public Usuario(String nome, String login, String senha) {
         this.setId(id);
         this.setNome(nome);
         this.setLogin(login);
         this.setSenha(senha);
     }
 
-    public int setId(int id) {
-        this.id = id;
-        return id;
+    public void setId(int id) throws RuntimeException {
+        if (id <= 0) {
+            throw new RuntimeException("ID não pode ser menor ou igual a 0!");
+        } else {
+            this.id = id;
+        }
     }
 
     public int getId() {
