@@ -64,13 +64,16 @@ public class UsuarioDAO {
             st.setString(1, login);
             st.setString(2, senha);
             rs = st.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 System.out.println(rs.getInt("id"));
                 novoUsuario.setId(rs.getInt("id"));
                 novoUsuario.setLogin(rs.getString("login_usuario"));
                 novoUsuario.setSenha(rs.getString("senha_usuario"));
                 novoUsuario.setNome(rs.getString("nome_usuario"));
-            }
+            } else {
+				novoUsuario = null;
+			}
+			rs.close();
         } catch (Exception e) {
             System.out.println("Erro" + e);
         }
