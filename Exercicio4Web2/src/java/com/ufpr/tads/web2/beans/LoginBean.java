@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class LoginBean implements Serializable{
     private int id;
     private String nome;
+    private String email;
     
     public LoginBean() {
         
@@ -34,4 +35,5 @@ public class LoginBean implements Serializable{
     public String getNome() {
         return this.nome;
     }
+    
 }

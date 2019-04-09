@@ -23,18 +23,13 @@ public class Usuario implements Serializable {
     }
 
     public Usuario(String nome, String login, String senha) {
-        this.setId(id);
         this.setNome(nome);
         this.setLogin(login);
         this.setSenha(senha);
     }
 
     public void setId(int id) throws RuntimeException {
-        if (id <= 0) {
-            throw new RuntimeException("ID não pode ser menor ou igual a 0!");
-        } else {
-            this.id = id;
-        }
+        this.id = id;
     }
 
     public int getId() {

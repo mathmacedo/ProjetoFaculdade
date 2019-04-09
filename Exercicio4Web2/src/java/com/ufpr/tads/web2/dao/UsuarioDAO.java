@@ -29,7 +29,7 @@ public class UsuarioDAO {
             rs = st.executeQuery();
             while (rs.next()) {
                 Usuario novoUsuario = new Usuario();
-                novoUsuario.setId(rs.getInt("id_usuario"));
+                novoUsuario.setId(rs.getInt("id"));
                 novoUsuario.setLogin(rs.getString("login_usuario"));
                 novoUsuario.setSenha(rs.getString("senha_usuario"));
                 novoUsuario.setNome(rs.getString("nome_usuario"));
