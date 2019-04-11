@@ -55,15 +55,20 @@ public class LoginServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 			
+			
             if(novoUsuario != null) {
                 LoginBean novoLogin = new LoginBean();
                 novoLogin.setId(novoUsuario.getId());
                 novoLogin.setNome(novoUsuario.getNome());
                 session = request.getSession(true);
                 session.setAttribute("usuarioSessao", novoLogin);
+				System.out.println(novoUsuario);
             }
+			
             
             if (session != null) {
+				System.out.println("sessao...");
+				System.out.println(session.toString());
                 out.println("<h1 style='text-align: center'>Logado com Sucesso</h1>");
                 out.println("<a class='btn btn-primary col-md-8 offset-md-2' href='/Exercicio4Web2/portal.jsp' role='button'>Continuar</a>");
             } else {
