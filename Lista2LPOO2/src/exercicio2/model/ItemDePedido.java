@@ -12,25 +12,63 @@ import javax.management.RuntimeErrorException;
  * @author macedo
  */
 public class ItemDePedido {
+    private int id;
     private String nome;
     private double preco;
     private int quantidade;
+    private int id_pedido;
     
     public ItemDePedido() {
         
     }
     
     public ItemDePedido(String nome, double preco, int quantidade) throws RuntimeException {
-        if(nome.isEmpty()) {
+        this.setNome(nome);
+        this.setPreco(preco);
+        this.setQuantidade(quantidade);
+    }
+    
+    public int getId() {
+        return this.id;
+    }
+    
+    public void setNome(String nome) throws RuntimeException {
+        if (nome.isEmpty()) {
             throw new RuntimeException("Nome do item não pode ser vazio!");
-        } else if(preco < 0) {
-            throw new RuntimeException("Preço não pode ser negativo!");
-        } else if(quantidade <= 0) {
-            throw new RuntimeException("Quantiade não pode ser nula ou negativa!");
         } else {
             this.nome = nome;
+        }
+    }
+    
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public void setPreco(double preco) throws RuntimeException {
+        if(preco < 0) {
+            throw new RuntimeException("Preço não pode ser negativo!");
+        } else {
             this.preco = preco;
+        }
+    }
+    
+    public double getPreco() {
+        return this.preco;
+    }
+    
+    public void setQuantidade(int quantidade) throws RuntimeException {
+        if(quantidade <= 0) {
+            throw new RuntimeException("Quantidade não pode ser nula ou negativa!");
+        } else {
             this.quantidade = quantidade;
         }
+    }
+    
+    public int getQuantidade() {
+        return this.quantidade;
+    }
+    
+    public int getIdPedido() {
+        return this.id_pedido;
     }
 }
