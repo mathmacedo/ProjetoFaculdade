@@ -17,7 +17,6 @@ public class Pedido {
     private String nomeCliente;
     private List<ItemDePedido> listaDeItensDePedido;
     private double valorTotalPermitido;
-    private PedidoDAO pedidoDAO;
     
     public Pedido() {
         
@@ -62,13 +61,5 @@ public class Pedido {
     
     public double getValorTotalPermitido() {
         return this.valorTotalPermitido;
-    }
-    
-    public void incluirPedido(Pedido novoPedido) {
-        this.pedidoDAO.incluirPedido(novoPedido);
-    }
-    
-    public void excluirPedido(String nomeCliente) {
-        
     }
 }

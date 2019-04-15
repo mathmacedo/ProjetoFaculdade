@@ -5,8 +5,6 @@
  */
 package exercicio2.model;
 
-import javax.management.RuntimeErrorException;
-
 /**
  *
  * @author macedo
@@ -26,6 +24,10 @@ public class ItemDePedido {
         this.setNome(nome);
         this.setPreco(preco);
         this.setQuantidade(quantidade);
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
     
     public int getId() {
@@ -66,6 +68,10 @@ public class ItemDePedido {
     
     public int getQuantidade() {
         return this.quantidade;
+    }
+    
+    public void setIdPedido(int id) {
+        this.id_pedido = id;
     }
     
     public int getIdPedido() {
