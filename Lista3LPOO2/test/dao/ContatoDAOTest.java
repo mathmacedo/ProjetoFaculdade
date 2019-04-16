@@ -7,12 +7,7 @@ package dao;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.List;
 import model.Contato;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
