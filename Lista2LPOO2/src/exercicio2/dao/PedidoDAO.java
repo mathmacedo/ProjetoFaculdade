@@ -135,11 +135,12 @@ public class PedidoDAO {
     
     public void inserirItemDePedido(ItemDePedido itemDePedido, int idPedido) {
         try {
-            st = connection.prepareStatement("insert into item_de_pedido (nome, preco, quantidade, id_pedido) values(?, ?, ?, ?)");
+            st = connection.prepareStatement("insert into item_de_pedido (nome, preco, quantidade, id_pedido, valor_total) values(?, ?, ?, ?, ?)");
             st.setString(1, itemDePedido.getNome());
             st.setDouble(2, itemDePedido.getPreco());
             st.setInt(3, itemDePedido.getQuantidade());
             st.setInt(4, idPedido);
+			st.setDouble(5, itemDePedido.getValorTotal());
             st.executeUpdate();
             st.close();
         } catch (SQLException e) {
