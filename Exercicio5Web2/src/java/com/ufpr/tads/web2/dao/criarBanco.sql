@@ -8,6 +8,16 @@
  * Created: Apr 16, 2019
  */
 
+create table tb_usuario (
+    id serial primary key,
+    login_usuario varchar(50),
+    senha_usuario varchar(50),
+    nome_usuario varchar(100)
+);
+
+insert into tb_usuario(login_usuario, senha_usuario, nome_usuario) values('teste', 'teste', 'teste');
+insert into tb_usuario(login_usuario, senha_usuario, nome_usuario) values('matheus', 'matheus', 'matheus macedo');
+
 create table tb_cliente (
 	id_cliente serial primary key,
 	cpf_cliente varchar(11),
@@ -21,6 +31,9 @@ create table tb_cliente (
 	uf_cliente varchar(2)
 );
 
+insert into tb_cliente (cpf_cliente, nome_cliente, email_cliente, data_cliente, rua_cliente, nr_cliente, cep_cliente, cidade_cliente, uf_cliente) values ('09119263996', 'matheus macedo', 'matheus@teste.com', '1997/07/09', 'joão havro' , 2155, '82560020', 'curitiba', 'pr');
+insert into tb_cliente (cpf_cliente, nome_cliente, email_cliente, data_cliente, rua_cliente, nr_cliente, cep_cliente, cidade_cliente, uf_cliente) values ('09119263996', 'matheus macedo', 'matheus@teste.com', '1997/07/09', 'joão havro' , 2155, '82560020', 'curitiba', 'pr');
+insert into tb_cliente (cpf_cliente, nome_cliente, email_cliente, data_cliente, rua_cliente, nr_cliente, cep_cliente, cidade_cliente, uf_cliente) values ('09119263996', 'matheus macedo', 'matheus@teste.com', '1997/07/09', 'joão havro' , 2155, '82560020', 'curitiba', 'pr');
 insert into tb_cliente (cpf_cliente, nome_cliente, email_cliente, data_cliente, rua_cliente, nr_cliente, cep_cliente, cidade_cliente, uf_cliente) values ('09119263996', 'matheus macedo', 'matheus@teste.com', '1997/07/09', 'joão havro' , 2155, '82560020', 'curitiba', 'pr');
 
 

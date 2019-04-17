@@ -29,7 +29,6 @@
             if (session.getAttribute("usuarioSessao") == null) {
                 String msg = (String) request.getAttribute("msg");
                 out.println(msg);
-                out.println("teste");
             }
         %>
     </head>

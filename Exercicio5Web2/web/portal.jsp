@@ -46,7 +46,7 @@
             <a class='btn btn-primary col-md-4 offset-md-1' href='LogoutServlet' role='button'>Sair</a>
         </div>
         <div style="display: inline">
-            <a class='btn btn-primary col-md-4 offset-md-1' href='inserir.jsp' role='button'>Cadastro de Clientes</a>
+            <a class='btn btn-primary col-md-4 offset-md-1' href='ClientesServlet' role='button'>Cadastro de Clientes</a>
         </div>  
         
         <div class="footer">
