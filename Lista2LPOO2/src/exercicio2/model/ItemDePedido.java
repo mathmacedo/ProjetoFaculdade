@@ -15,6 +15,7 @@ public class ItemDePedido {
     private double preco;
     private int quantidade;
     private int id_pedido;
+	private double valorTotal;
     
     public ItemDePedido() {
         
@@ -77,4 +78,12 @@ public class ItemDePedido {
     public int getIdPedido() {
         return this.id_pedido;
     }
+	
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = this.preco * this.quantidade;
+	}
+	
+	public double getValorTotal() {
+		return this.valorTotal;
+	}
 }

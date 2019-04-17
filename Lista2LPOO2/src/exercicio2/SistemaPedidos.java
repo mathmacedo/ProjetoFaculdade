@@ -153,7 +153,12 @@ public class SistemaPedidos {
                     itemDePedido.setPreco(preco);
                     itemDePedido.setQuantidade(quantidade);
                     itemDePedido.setIdPedido(pedido.getId());
-                    pedidoDAO.inserirItemDePedido(itemDePedido, pedido.getId());
+					itemDePedido.setValorTotal(itemDePedido.getPreco() * itemDePedido.getQuantidade());
+					if(itemDePedido.getValorTotal() <= pedido.getValorTotalPermitido()) {
+						pedidoDAO.inserirItemDePedido(itemDePedido, pedido.getId());
+					} else {
+						System.out.println("Pedido ultrapassa valor!");
+					}
                     break;
                 } catch (RuntimeException e) {
                     System.out.println(e);
@@ -220,14 +225,17 @@ public class SistemaPedidos {
         listaDePedidos = pedidoDAO.getAllPedidos();
         List<ItemDePedido> listaDeItemDePedidos = new ArrayList<ItemDePedido>();
         listaDeItemDePedidos = pedidoDAO.getAllItemDePedidos();
+		double valorTotal = 0;
         
         for(Pedido i : listaDePedidos) {
             System.out.println("Nome : " + i.getNomeCliente());
             for(ItemDePedido j : listaDeItemDePedidos) {
                 if(j.getIdPedido()== i.getId()) {
                     System.out.println("Nome do Item : " + j.getNome() + " Valor do Item : " + j.getPreco());
+					valorTotal = j.getPreco() * j.getQuantidade();
                 }
             }
+			System.out.println("Valor total do Pedido : " + valorTotal);
         }
     }
 }
