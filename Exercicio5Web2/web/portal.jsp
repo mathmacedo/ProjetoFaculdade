@@ -16,6 +16,7 @@
         <%
 			session = request.getSession(false);
 			if (session.getAttribute("usuarioSessao") == null) {
+				session.invalidate();
                 request.setAttribute("msg", "Usuário deve se autenticar para acessar o sistema.");
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
