@@ -28,13 +28,15 @@
             session = request.getSession(false);
             if (session.getAttribute("usuarioSessao") == null) {
                 String msg = (String) request.getAttribute("msg");
-                out.println(msg);
+				if(msg != null) {
+					out.println("<h1 style='text-align: center;color: red'>" + msg + "</h1>");
+				}
             }
         %>
     </head>
     <body>
         <jsp:useBean id="configuracao" class="com.ufpr.tads.web2.beans.ConfigBean" scope="application"/>
-        
+		
         <div class="col-md-6 offset-md-3">
             <form action="LoginServlet" method="POST">
                 <div class="form-group">

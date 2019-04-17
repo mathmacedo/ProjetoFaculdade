@@ -39,7 +39,10 @@ public class FormNovoClienteServlet extends HttpServlet {
                 request.setAttribute("msg", "Usuário deve se autenticar para acessar o sistema.");
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
-            }
+            } else {
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/clientesNovo.jsp");
+                rd.forward(request, response);
+			}
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");

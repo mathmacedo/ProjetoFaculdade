@@ -61,8 +61,11 @@ public class AlterarClienteServlet extends HttpServlet {
                 java.sql.Date dataFormatada = new java.sql.Date(data.getTime());
                 String numeroString = request.getParameter("numero");
                 Integer numero = Integer.parseInt(numeroString);
+				String idString = request.getParameter("id");
+				Integer id = Integer.parseInt(idString);
                 
-                cliente.setCpf(request.getParameter("cpf"));
+                cliente.setId(id);
+				cliente.setCpf(request.getParameter("cpf"));
                 cliente.setNome(request.getParameter("nome"));
                 cliente.setEmail(request.getParameter("email"));
                 cliente.setData(dataFormatada);
@@ -74,7 +77,7 @@ public class AlterarClienteServlet extends HttpServlet {
                 
                 clienteDAO.alterarCliente(cliente);
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/ClientesServlet");
-                rd.forward(request, response);
+				rd.forward(request, response);
             }
             
             out.println("<!DOCTYPE html>");

@@ -5,8 +5,15 @@
  */
 package com.ufpr.tads.web2.servlets;
 
+import com.ufpr.tads.web2.beans.Cliente;
+import com.ufpr.tads.web2.dao.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,7 +46,36 @@ public class NovoClienteServlet extends HttpServlet {
                 request.setAttribute("msg", "Usuário deve se autenticar para acessar o sistema.");
                 RequestDispatcher rd = getServletContext().getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
-            }
+            } else {
+                ClienteDAO clienteDAO = new ClienteDAO();
+                Cliente cliente = new Cliente();
+                
+                String dataString = request.getParameter("data");
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                Date data = null;
+                try {
+                    data = format.parse(dataString);
+                } catch (ParseException ex) {
+                    Logger.getLogger(AlterarClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                java.sql.Date dataFormatada = new java.sql.Date(data.getTime());
+                String numeroString = request.getParameter("numero");
+                Integer numero = Integer.parseInt(numeroString);
+				
+				cliente.setCpf(request.getParameter("cpf"));
+                cliente.setNome(request.getParameter("nome"));
+                cliente.setEmail(request.getParameter("email"));
+                cliente.setData(dataFormatada);
+                cliente.setRua(request.getParameter("rua"));
+                cliente.setNumero(numero);
+                cliente.setCep(request.getParameter("cep"));
+                cliente.setCidade(request.getParameter("cidade"));
+                cliente.setUf(request.getParameter("uf"));
+                
+                clienteDAO.inserirCliente(cliente);
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/ClientesServlet");
+				rd.forward(request, response);
+			}
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -47,7 +83,6 @@ public class NovoClienteServlet extends HttpServlet {
                     out.println("<title>Servlet NovoClienteServlet</title>");            
                 out.println("</head>");
                 out.println("<body>");
-                    out.println("<h1>Servlet NovoClienteServlet at " + request.getContextPath() + "</h1>");
                 out.println("</body>");
             out.println("</html>");
         }

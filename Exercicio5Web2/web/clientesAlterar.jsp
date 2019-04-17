@@ -39,10 +39,15 @@
         <jsp:useBean id="configuracao" class="com.ufpr.tads.web2.beans.ConfigBean" scope="application"/>
         <%
             Cliente cliente = (Cliente) request.getAttribute("alterarCliente");
+			
         %>
         
         <div class="col-md-8 offset-md-2" style='margin-top: 30px;'>
             <form action="AlterarClienteServlet" method="POST">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" readonly=“true” value="<% out.println(Integer.toString(cliente.getId())); %>">
+                </div>
                 <div class="form-group">
                     <label for="cpf">CPF</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="<% out.println(cliente.getCpf()); %>">

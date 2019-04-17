@@ -124,8 +124,6 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-nbproject/
-nbproject/project.properties
 
 ### VisualStudioCode ###
 .vscode/*
