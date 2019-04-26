@@ -4,6 +4,7 @@
     Author     : macedo
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.ufpr.tads.web2.beans.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,6 +40,8 @@
         <jsp:useBean id="configuracao" class="com.ufpr.tads.web2.beans.ConfigBean" scope="application"/>
         <%
             Cliente cliente = (Cliente) request.getAttribute("cliente");
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+			String strDate = simpleDateFormat.format(cliente.getData());
         %>
         
         <div class="col-md-8 offset-md-2" style='margin-top: 30px;'>
@@ -63,7 +66,7 @@
                         <td><% out.println(cliente.getCpf()); %></td>
                         <td><% out.println(cliente.getNome()); %></td>
                         <td><% out.println(cliente.getEmail()); %></td>
-                        <td><% out.println(cliente.getData()); %></td>
+                        <td><% out.println(strDate); %></td>
                         <td><% out.println(cliente.getRua()); %></td>
                         <td><% out.println(cliente.getNumero()); %></td>
                         <td><% out.println(cliente.getCep()); %></td>
