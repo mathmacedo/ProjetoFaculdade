@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,6 +37,21 @@
     </head>
     <body>
 		<jsp:useBean id="configuracao" class="com.ufpr.tads.web2.beans.ConfigBean" scope="application"/>
+		
+		<div class="col-md-6 offset-md-3">
+            <form action="LoginServlet" method="POST">
+                <div class="form-group">
+                    <label>Login :</label>
+                    <input class="form-control" name="login" placeholder="Login"/>
+                </div>
+                <div class="form-group">
+                    <label>Senha :</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Senha"/>
+                </div>
+
+                <button type="submit" class="btn btn-block btn-primary" value="logar">Logar</button>
+            </form>
+        </div>
 		
 		<div class="footer">
             <p>Em caso de problemaas contactar o administrador : <jsp:getProperty name="configuracao" property="email"/></p>
